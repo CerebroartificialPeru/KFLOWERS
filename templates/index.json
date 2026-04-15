@@ -1,46 +1,61 @@
 {
   "sections": {
+    "announcement_bar": {
+      "type": "announcement-bar",
+      "blocks": {
+        "announcement": {
+          "type": "announcement",
+          "settings": {
+            "text": "Envío gratis en pedidos mayores a $500 · Flores frescas todos los días",
+            "text_alignment": "center",
+            "link": ""
+          }
+        }
+      },
+      "block_order": ["announcement"],
+      "settings": {
+        "color_scheme": "scheme-4",
+        "auto_rotate": false,
+        "change_slides_speed": 5
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Image banner",
+            "heading": "Flores que expresan lo que las palabras no pueden",
             "heading_size": "h0"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
+            "text": "Arreglos florales artesanales, bouquets y plantas para cada ocasión especial.",
+            "text_style": "subtitle"
           }
         },
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
+            "button_label_1": "Ver colección",
             "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "button_style_secondary_1": false,
+            "button_label_2": "Nuestra historia",
+            "button_link_2": "shopify://pages/about",
+            "button_style_secondary_2": true
           }
         }
       },
-      "block_order": [
-        "heading",
-        "text",
-        "button"
-      ],
+      "block_order": ["heading", "text", "button"],
       "settings": {
-        "image_overlay_opacity": 40,
+        "image_overlay_opacity": 35,
         "image_height": "large",
-        "desktop_content_position": "bottom-center",
+        "desktop_content_position": "middle-center",
         "show_text_box": false,
         "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-1",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
         "show_text_below": false
@@ -49,98 +64,106 @@
     "rich_text": {
       "type": "rich-text",
       "blocks": {
+        "subheading": {
+          "type": "caption",
+          "settings": {
+            "caption": "Bienvenidos",
+            "icon_name": "icon-leaf",
+            "capitalize": true
+          }
+        },
         "heading": {
           "type": "heading",
           "settings": {
-            "heading": "Talk about your brand",
+            "heading": "Cada flor cuenta una historia",
             "heading_size": "h1"
           }
         },
         "text": {
           "type": "text",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.<\/p>"
+            "text": "<p>Creamos arreglos florales únicos con las flores más frescas, cuidadosamente seleccionadas para celebrar tus momentos más especiales. Desde bouquets románticos hasta centros de mesa para eventos.</p>"
+          }
+        },
+        "button": {
+          "type": "buttons",
+          "settings": {
+            "button_label": "Conoce nuestra historia",
+            "button_link": "shopify://pages/about",
+            "button_style_secondary": true
           }
         }
       },
-      "block_order": [
-        "heading",
-        "text"
-      ],
+      "block_order": ["subheading", "heading", "text", "button"],
       "settings": {
         "color_scheme": "scheme-1",
         "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
+        "padding_top": 60,
+        "padding_bottom": 40
       }
     },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "Nuestros Arreglos",
         "heading_size": "h2",
         "collection": "all",
         "products_to_show": 8,
         "columns_desktop": 4,
-        "color_scheme": "scheme-1",
-        "show_view_all": false,
-        "swipe_on_mobile": false,
-        "image_ratio": "adapt",
+        "color_scheme": "scheme-2",
+        "show_view_all": true,
+        "view_all_style": "link",
+        "enable_desktop_slider": false,
+        "swipe_on_mobile": true,
+        "image_ratio": "portrait",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
+        "quick_add": "standard",
         "columns_mobile": "2",
-        "padding_top": 28,
-        "padding_bottom": 36
+        "padding_top": 48,
+        "padding_bottom": 48
       }
     },
-    "collage": {
-      "type": "collage",
+    "image_with_text": {
+      "type": "image-with-text",
       "blocks": {
-        "collection-0": {
-          "type": "collection",
+        "caption": {
+          "type": "caption",
           "settings": {
-            "collection": ""
+            "caption": "Nuestra promesa",
+            "icon_name": "icon-leaf",
+            "capitalize": true
           }
         },
-        "product": {
-          "type": "product",
+        "heading": {
+          "type": "heading",
           "settings": {
-            "product": "",
-            "second_image": false
+            "heading": "Frescura y belleza en cada detalle",
+            "heading_size": "h2"
           }
         },
-        "collection-1": {
-          "type": "collection",
+        "text": {
+          "type": "text",
           "settings": {
-            "collection": ""
+            "text": "<p>Trabajamos directamente con productores locales para garantizar flores de la más alta calidad. Cada arreglo es elaborado a mano por nuestros floristas con pasión y dedicación.</p>"
+          }
+        },
+        "button": {
+          "type": "button",
+          "settings": {
+            "button_label": "Explorar arreglos",
+            "button_link": "shopify://collections/all"
           }
         }
       },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
+      "block_order": ["caption", "heading", "text", "button"],
       "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
+        "image_position": "left",
         "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "heading_size": "h1",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
+        "height": "adapt",
+        "text_alignment": "left",
+        "desktop_image_width": "medium",
         "padding_top": 36,
         "padding_bottom": 36
       }
@@ -151,60 +174,122 @@
         "column1": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "Flores Frescas",
+            "text": "<p>Recibimos nuevas flores cada mañana directamente de los mejores cultivos para garantizar la máxima frescura.</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "icon_name": "icon-leaf"
           }
         },
         "column2": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "Diseño Artesanal",
+            "text": "<p>Cada arreglo es creado a mano por nuestros floristas expertos, con atención personalizada a cada detalle.</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "icon_name": "icon-gift"
           }
         },
         "column3": {
           "type": "column",
           "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.<\/p>",
+            "title": "Entrega a Domicilio",
+            "text": "<p>Llevamos tu pedido directo a la puerta. Entrega el mismo día disponible en pedidos antes del mediodía.</p>",
             "link_label": "",
-            "link": ""
+            "link": "",
+            "icon_name": "icon-truck"
           }
         }
       },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+      "block_order": ["column1", "column2", "column3"],
       "settings": {
-        "title": "",
-        "heading_size": "h1",
+        "title": "¿Por qué elegirnos?",
+        "heading_size": "h2",
         "image_width": "third",
         "image_ratio": "adapt",
         "columns_desktop": 3,
         "column_alignment": "center",
-        "background_style": "none",
+        "background_style": "primary",
         "button_label": "",
         "button_link": "",
         "swipe_on_mobile": false,
+        "color_scheme": "scheme-2",
+        "columns_mobile": "1",
+        "padding_top": 48,
+        "padding_bottom": 48
+      }
+    },
+    "collection_list": {
+      "type": "collection-list",
+      "blocks": {
+        "collection-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "collection-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": ["collection-0", "collection-1", "collection-2"],
+      "settings": {
+        "title": "Compra por categoría",
+        "heading_size": "h2",
+        "image_ratio": "square",
+        "columns_desktop": 3,
         "color_scheme": "scheme-1",
+        "show_view_all": false,
+        "swipe_on_mobile": true,
         "columns_mobile": "1",
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "newsletter": {
+      "type": "email-signup-banner",
+      "blocks": {
+        "heading": {
+          "type": "heading",
+          "settings": {
+            "heading": "Únete a nuestra comunidad floral",
+            "heading_size": "h2"
+          }
+        },
+        "paragraph": {
+          "type": "paragraph",
+          "settings": {
+            "text": "Recibe inspiración floral, ofertas exclusivas y novedades directamente en tu bandeja de entrada."
+          }
+        }
+      },
+      "block_order": ["heading", "paragraph"],
+      "settings": {
+        "color_scheme": "scheme-3",
+        "full_width": true,
+        "padding_top": 52,
+        "padding_bottom": 52
+      }
     }
   },
   "order": [
+    "announcement_bar",
     "image_banner",
     "rich_text",
     "featured_collection",
-    "collage",
-    "video",
-    "multicolumn"
+    "image_with_text",
+    "multicolumn",
+    "collection_list",
+    "newsletter"
   ]
 }

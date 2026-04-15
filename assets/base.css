@@ -3595,3 +3595,164 @@ details-disclosure > details {
     transform: translateX(100%) scaleX(0);
   }
 }
+
+/* ============================================
+   BOUQUET PRESET — Floral Elegance Overrides
+   ============================================ */
+
+/* Heading typography — serif elegance */
+h1, h2, h3, h4, h5, h6,
+.h0, .h1, .h2, .h3, .h4, .h5,
+.card__heading,
+.card__heading a {
+  letter-spacing: 0.02em;
+  font-style: normal;
+}
+
+/* Refined letter-spacing on body labels & nav */
+.header__menu-item,
+.announcement-bar__message,
+.link,
+.button,
+caption,
+.card__badge {
+  letter-spacing: 0.06em;
+}
+
+/* Smooth card hover lift */
+.card-wrapper,
+.product-card-wrapper,
+.collection-card-wrapper {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-wrapper:hover,
+.product-card-wrapper:hover,
+.collection-card-wrapper:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(58, 46, 43, 0.10);
+}
+
+/* Elegant image scale on hover */
+.card__media .media img,
+.card__media .media video {
+  transition: transform 0.5s ease;
+}
+.card-wrapper:hover .card__media .media img,
+.card-wrapper:hover .card__media .media video {
+  transform: scale(1.03);
+}
+
+/* Soft dividers */
+hr,
+.section-header {
+  border-color: rgba(58, 46, 43, 0.1);
+}
+
+/* Button — elegant flat style */
+.button,
+.button--primary {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1.2rem;
+  padding: 1.4rem 3.2rem;
+  transition: opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.button:hover,
+.button--primary:hover {
+  opacity: 0.85;
+}
+
+/* Secondary / ghost button */
+.button--secondary {
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 1.2rem;
+}
+
+/* Header — subtle bottom border */
+.header-wrapper {
+  border-bottom: 1px solid rgba(58, 46, 43, 0.1);
+}
+
+/* Announcement bar refinement */
+.announcement-bar {
+  border-bottom: 1px solid rgba(58, 46, 43, 0.08);
+}
+
+/* Featured collection heading */
+.featured-collection .title,
+.collection-list .title {
+  text-align: center;
+}
+
+/* Rich text section centering */
+.rich-text__heading {
+  letter-spacing: 0.02em;
+}
+
+/* Product price — warm accent */
+.price__regular .price-item,
+.price__sale .price-item--sale {
+  font-weight: 500;
+  letter-spacing: 0.04em;
+}
+
+/* Footer refinement */
+.footer {
+  border-top: 1px solid rgba(58, 46, 43, 0.12);
+}
+
+/* Newsletter input */
+.newsletter-form__field-wrapper .field__input,
+.newsletter-form__field-wrapper .field__input:focus {
+  border-radius: 0;
+}
+
+/* Breadcrumb */
+.breadcrumbs {
+  letter-spacing: 0.05em;
+  font-size: 1.2rem;
+  text-transform: uppercase;
+}
+
+/* Variant pills — rounded pill style */
+.variant-pills .form__label {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+}
+
+/* Product page title */
+.product__title {
+  letter-spacing: 0.02em;
+}
+
+/* Collection page filters */
+.facets__heading {
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+}
+
+/* Image banner overlay — softer gradient */
+.banner__media::after {
+  background: linear-gradient(
+    to top,
+    rgba(58, 46, 43, 0.45) 0%,
+    rgba(58, 46, 43, 0.10) 60%,
+    transparent 100%
+  );
+}
+
+/* Cart drawer */
+.cart-drawer {
+  border-left: 1px solid rgba(58, 46, 43, 0.1);
+}
+
+/* Pagination */
+.pagination__item--current {
+  background-color: rgba(155, 97, 85, 0.15);
+  border-color: #9B6155;
+}
+
