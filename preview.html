@@ -1,0 +1,1149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Moviditas — Preview Bouquet</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --cream:     #FDF6F0;
+      --blush:     #F5E8DF;
+      --rose:      #9B6155;
+      --rose-lt:   #C4856F;
+      --dark:      #3A2E2B;
+      --sage:      #6B8C7A;
+      --white:     #FFFFFF;
+      --border:    rgba(58,46,43,0.1);
+      --ff-head:   'Cormorant Garamond', Georgia, serif;
+      --ff-body:   'Jost', system-ui, sans-serif;
+    }
+
+    html { font-size: 62.5%; scroll-behavior: smooth; }
+    body {
+      font-family: var(--ff-body);
+      font-size: 1.5rem;
+      background: var(--cream);
+      color: var(--dark);
+      line-height: 1.6;
+    }
+
+    /* ── ANNOUNCEMENT BAR ── */
+    .announcement {
+      background: var(--sage);
+      color: var(--white);
+      text-align: center;
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--cream);
+      border-bottom: 1px solid var(--border);
+      padding: 2.2rem 4rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.6rem;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+    .logo {
+      font-family: var(--ff-head);
+      font-size: 3.2rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      color: var(--dark);
+      text-decoration: none;
+    }
+    nav {
+      display: flex;
+      gap: 3.2rem;
+      list-style: none;
+    }
+    nav a {
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--dark);
+      text-decoration: none;
+      opacity: 0.85;
+      transition: opacity .2s;
+    }
+    nav a:hover { opacity: 1; }
+    .header-icons {
+      position: absolute;
+      right: 4rem;
+      top: 50%;
+      transform: translateY(-50%);
+      display: flex;
+      gap: 1.8rem;
+      align-items: center;
+    }
+    .header-icons svg { width: 2rem; height: 2rem; stroke: var(--dark); fill: none; cursor: pointer; opacity: .8; }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative;
+      height: 82vh;
+      min-height: 500px;
+      background: linear-gradient(160deg, #e8d5cc 0%, #c9a99a 40%, #a87060 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 7rem;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 30% 60%, rgba(255,220,200,.35) 0%, transparent 55%),
+        radial-gradient(ellipse at 75% 30%, rgba(180,140,120,.2) 0%, transparent 50%);
+    }
+    .hero-flowers {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18rem;
+      opacity: .12;
+      user-select: none;
+      letter-spacing: -2rem;
+    }
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(58,46,43,.45) 0%, rgba(58,46,43,.08) 55%, transparent 100%);
+    }
+    .hero-content {
+      position: relative;
+      text-align: center;
+      color: var(--white);
+      max-width: 720px;
+      padding: 0 2rem;
+    }
+    .hero-content h1 {
+      font-family: var(--ff-head);
+      font-size: clamp(3.8rem, 6vw, 7rem);
+      font-weight: 300;
+      line-height: 1.15;
+      letter-spacing: 0.02em;
+      margin-bottom: 1.6rem;
+    }
+    .hero-content p {
+      font-size: 1.6rem;
+      font-weight: 300;
+      letter-spacing: 0.04em;
+      opacity: .9;
+      margin-bottom: 3rem;
+    }
+    .hero-buttons { display: flex; gap: 1.6rem; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-block;
+      padding: 1.4rem 3.2rem;
+      font-family: var(--ff-body);
+      font-size: 1.2rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      cursor: pointer;
+      border: 1px solid currentColor;
+      transition: opacity .2s, background .2s;
+    }
+    .btn-primary { background: var(--rose); color: var(--white); border-color: var(--rose); }
+    .btn-primary:hover { opacity: .85; }
+    .btn-outline { background: transparent; color: var(--white); border-color: rgba(255,255,255,.7); }
+    .btn-outline:hover { background: rgba(255,255,255,.12); }
+
+    /* ── SECTIONS ── */
+    section { padding: 6rem 4rem; }
+    .section-label {
+      font-size: 1.15rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--rose);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: .6rem;
+    }
+    .section-label::before, .section-label::after {
+      content: '';
+      flex: 1;
+      max-width: 40px;
+      height: 1px;
+      background: var(--rose-lt);
+      opacity: .5;
+    }
+    h2 {
+      font-family: var(--ff-head);
+      font-size: clamp(3rem, 4vw, 4.8rem);
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      line-height: 1.2;
+    }
+    .text-center { text-align: center; }
+
+    /* ── BRAND STORY ── */
+    .brand-story {
+      background: var(--cream);
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto;
+    }
+    .brand-story h2 { margin-bottom: 1.8rem; }
+    .brand-story p { font-size: 1.55rem; line-height: 1.8; opacity: .8; margin-bottom: 2.8rem; }
+
+    /* ── PRODUCTS ── */
+    .products-section { background: var(--blush); }
+    .products-section .section-label { justify-content: center; }
+    .products-section h2 { text-align: center; margin-bottom: 4rem; }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .product-card {
+      background: var(--cream);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid rgba(58,46,43,.08);
+      box-shadow: 0 4px 8px rgba(58,46,43,.04);
+      transition: transform .3s ease, box-shadow .3s ease;
+      cursor: pointer;
+    }
+    .product-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px rgba(58,46,43,.10);
+    }
+    .product-card:hover .card-img-inner { transform: scale(1.03); }
+    .card-img {
+      aspect-ratio: 3/4;
+      overflow: hidden;
+      position: relative;
+    }
+    .card-img-inner {
+      width: 100%;
+      height: 100%;
+      transition: transform .5s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 7rem;
+    }
+    .card-img-bg-1 { background: linear-gradient(135deg, #f0d6cc 0%, #e8bdb0 100%); }
+    .card-img-bg-2 { background: linear-gradient(135deg, #d6e8d4 0%, #b8d4b5 100%); }
+    .card-img-bg-3 { background: linear-gradient(135deg, #f0e0d0 0%, #e4c8b0 100%); }
+    .card-img-bg-4 { background: linear-gradient(135deg, #e8d0e0 0%, #d4b4cc 100%); }
+    .badge {
+      position: absolute;
+      bottom: 1rem;
+      left: 1rem;
+      background: var(--rose-lt);
+      color: var(--white);
+      font-size: 1rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: .4rem 1rem;
+      border-radius: 40px;
+    }
+    .card-info { padding: 1.6rem; }
+    .card-info h3 {
+      font-family: var(--ff-head);
+      font-size: 1.9rem;
+      font-weight: 400;
+      margin-bottom: .5rem;
+      letter-spacing: 0.02em;
+    }
+    .card-price { font-size: 1.4rem; letter-spacing: 0.04em; color: var(--rose); font-weight: 500; }
+    .quick-add {
+      width: 100%;
+      margin-top: 1.2rem;
+      padding: 1rem;
+      background: var(--dark);
+      color: var(--white);
+      border: none;
+      font-family: var(--ff-body);
+      font-size: 1.1rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: opacity .2s;
+    }
+    .quick-add:hover { opacity: .8; }
+
+    /* ── IMAGE WITH TEXT ── */
+    .image-text { background: var(--cream); }
+    .image-text-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
+    }
+    .image-text-img {
+      border-radius: 6px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      background: linear-gradient(145deg, #dfc9be 0%, #c4a090 50%, #a87868 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 12rem;
+    }
+    .image-text-content .section-label { justify-content: flex-start; }
+    .image-text-content .section-label::before { display: none; }
+    .image-text-content h2 { margin-bottom: 1.8rem; }
+    .image-text-content p { font-size: 1.55rem; line-height: 1.85; opacity: .8; margin-bottom: 3rem; }
+
+    /* ── VALUES ── */
+    .values { background: var(--blush); }
+    .values-inner { max-width: 1100px; margin: 0 auto; }
+    .values h2 { text-align: center; margin-bottom: 4.5rem; }
+    .values-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 3rem; }
+    .value-card {
+      text-align: center;
+      background: var(--cream);
+      border-radius: 6px;
+      padding: 3.5rem 2.8rem;
+      border: 1px solid rgba(58,46,43,.08);
+    }
+    .value-icon { font-size: 3.6rem; margin-bottom: 1.6rem; }
+    .value-card h3 {
+      font-family: var(--ff-head);
+      font-size: 2.2rem;
+      font-weight: 400;
+      margin-bottom: 1rem;
+      letter-spacing: 0.02em;
+    }
+    .value-card p { font-size: 1.45rem; line-height: 1.75; opacity: .75; }
+
+    /* ── NEWSLETTER ── */
+    .newsletter {
+      background: var(--dark);
+      color: var(--white);
+      text-align: center;
+    }
+    .newsletter h2 { font-family: var(--ff-head); font-size: 4rem; font-weight: 300; letter-spacing: 0.02em; margin-bottom: 1.2rem; color: var(--white); }
+    .newsletter p { font-size: 1.5rem; opacity: .75; margin-bottom: 3rem; }
+    .newsletter-form { display: flex; gap: 0; max-width: 460px; margin: 0 auto; }
+    .newsletter-form input {
+      flex: 1;
+      padding: 1.4rem 2rem;
+      border: 1px solid rgba(253,246,240,.25);
+      background: rgba(253,246,240,.08);
+      color: var(--white);
+      font-family: var(--ff-body);
+      font-size: 1.4rem;
+      outline: none;
+    }
+    .newsletter-form input::placeholder { color: rgba(253,246,240,.45); }
+    .newsletter-form button {
+      padding: 1.4rem 2.4rem;
+      background: var(--rose);
+      color: var(--white);
+      border: 1px solid var(--rose);
+      font-family: var(--ff-body);
+      font-size: 1.2rem;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      cursor: pointer;
+      white-space: nowrap;
+      transition: opacity .2s;
+    }
+    .newsletter-form button:hover { opacity: .85; }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--blush);
+      border-top: 1px solid var(--border);
+      padding: 5rem 4rem 3rem;
+    }
+    .footer-grid {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr;
+      gap: 4rem;
+      padding-bottom: 3rem;
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 2.5rem;
+    }
+    .footer-brand .logo { font-size: 2.6rem; display: block; margin-bottom: 1.4rem; }
+    .footer-brand p { font-size: 1.4rem; line-height: 1.8; opacity: .7; max-width: 300px; }
+    .footer-col h4 {
+      font-size: 1.15rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 1.6rem;
+      opacity: .5;
+    }
+    .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: .8rem; }
+    .footer-col a { font-size: 1.4rem; color: var(--dark); text-decoration: none; opacity: .75; transition: opacity .2s; }
+    .footer-col a:hover { opacity: 1; }
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.25rem;
+      opacity: .5;
+    }
+
+    /* ── BEST SELLERS ── */
+    .best-sellers {
+      background: var(--white);
+      padding: 6rem 5rem;
+    }
+    .bs-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-bottom: 3.5rem;
+    }
+    .bs-header h2 {
+      font-family: var(--ff-head);
+      font-size: clamp(2.8rem, 3.5vw, 4.2rem);
+      font-weight: 400;
+      letter-spacing: 0.01em;
+    }
+    .bs-view-all {
+      font-size: 1.25rem;
+      letter-spacing: 0.06em;
+      color: var(--dark);
+      text-decoration: none;
+      opacity: .6;
+      border-bottom: 1px solid rgba(58,46,43,.25);
+      padding-bottom: 2px;
+      transition: opacity .2s;
+      font-family: 'Courier New', monospace;
+    }
+    .bs-view-all:hover { opacity: 1; }
+
+    .bs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* Organic wavy shape */
+    .bs-card {
+      display: block;
+      text-decoration: none;
+      color: inherit;
+    }
+    .bs-card-inner {
+      position: relative;
+      overflow: hidden;
+      border-radius: 42% 56% 52% 44% / 44% 42% 56% 52%;
+      transition: border-radius .6s ease;
+    }
+    .bs-card:hover .bs-card-inner {
+      border-radius: 48% 50% 50% 48% / 48% 50% 50% 48%;
+    }
+
+    .bs-card--large .bs-card-inner { aspect-ratio: 1 / 1.1; }
+
+    .bs-img {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center;
+      transition: transform .6s ease;
+    }
+    /* Zoom on hover — only photo cards */
+    .bs-card--photo:hover .bs-img {
+      transform: scale(1.08);
+    }
+    /* Simulated flower photos with gradients */
+    .bs-img-1 {
+      background: linear-gradient(145deg, #f5ede4 0%, #e8d5c4 40%, #d4b89a 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 9rem;
+    }
+    .bs-img-3 {
+      background: linear-gradient(145deg, #f0e4d8 0%, #e0c8b4 60%, #c8a888 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5.5rem;
+    }
+    .bs-img-4 {
+      background: linear-gradient(145deg, #e8c8cc 0%, #d4a4a8 50%, #c08488 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 5.5rem;
+    }
+    /* Illustration cards */
+    .bs-card--illustration .bs-card-inner {
+      background: var(--cream);
+      border-radius: 44% 54% 50% 46% / 46% 44% 54% 50%;
+    }
+    .bs-card--illustration:hover .bs-card-inner {
+      border-radius: 50% 48% 50% 48% / 50% 48% 50% 48%;
+    }
+    .bs-img-art-1,
+    .bs-img-art-2 {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+    }
+    .bs-img-art-1 svg,
+    .bs-img-art-2 svg {
+      width: 70%;
+      height: 70%;
+    }
+    /* Accent pink card */
+    .bs-card--accent .bs-card-inner {
+      background: #d4a0a4;
+    }
+
+    /* Product label overlay */
+    .bs-label {
+      position: absolute;
+      bottom: 1.6rem;
+      left: 50%;
+      transform: translateX(-50%);
+      color: var(--white);
+      font-family: var(--ff-head);
+      font-size: 1.7rem;
+      font-weight: 400;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+      text-shadow: 0 1px 6px rgba(0,0,0,.25);
+      opacity: 0;
+      transition: opacity .3s ease;
+    }
+    .bs-card--photo:hover .bs-label { opacity: 1; }
+
+    /* Small 2x2 grid */
+    .bs-small-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+    .bs-small-grid .bs-card-inner { aspect-ratio: 1 / 1; }
+
+    /* ── TABBED COLLECTIONS ── */
+    .tabbed-collections {
+      background: var(--white);
+      padding: 0;
+      display: flex;
+      min-height: 520px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .tab-sidebar {
+      display: flex;
+      flex-direction: column;
+      border-right: 1px solid var(--border);
+      min-width: 52px;
+      background: var(--cream);
+    }
+    .tab-btn {
+      writing-mode: vertical-rl;
+      transform: rotate(180deg);
+      padding: 2.4rem 1.4rem;
+      border: none;
+      background: transparent;
+      cursor: pointer;
+      font-family: var(--ff-body);
+      font-size: 1.15rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--dark);
+      opacity: 0.45;
+      border-bottom: 1px solid var(--border);
+      transition: opacity .2s, background .2s;
+      white-space: nowrap;
+    }
+    .tab-btn:first-child { border-top: 1px solid var(--border); }
+    .tab-btn.active {
+      opacity: 1;
+      background: var(--white);
+      border-right: 2px solid var(--rose);
+      margin-right: -1px;
+    }
+    .tab-btn:hover:not(.active) { opacity: 0.75; }
+
+    .tab-content { flex: 1; padding: 4rem; overflow: hidden; }
+
+    .tab-panel { display: none; }
+    .tab-panel.active { display: block; }
+
+    .tab-panel-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3.2rem;
+      gap: 2rem;
+    }
+    .tab-panel-header h3 {
+      font-family: var(--ff-head);
+      font-size: 2.8rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: .5rem;
+    }
+    .tab-panel-header p {
+      font-size: 1.4rem;
+      opacity: 0.65;
+      max-width: 380px;
+    }
+    .tab-view-all {
+      font-size: 1.25rem;
+      letter-spacing: 0.06em;
+      color: var(--dark);
+      text-decoration: none;
+      white-space: nowrap;
+      opacity: 0.7;
+      border-bottom: 1px solid rgba(58,46,43,.25);
+      padding-bottom: 2px;
+      transition: opacity .2s;
+      margin-top: .4rem;
+    }
+    .tab-view-all:hover { opacity: 1; }
+
+    .tab-products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 1.8rem;
+    }
+    .tab-card {
+      position: relative;
+      background: var(--cream);
+      border-radius: 6px;
+      overflow: hidden;
+      border: 1px solid rgba(58,46,43,.08);
+      transition: transform .3s ease, box-shadow .3s ease;
+      cursor: pointer;
+    }
+    .tab-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 20px rgba(58,46,43,.09);
+    }
+    .tab-card-img {
+      aspect-ratio: 1/1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+    }
+    .tab-card-info { padding: 1.4rem 1.4rem 1.6rem; }
+    .tab-card-info h4 {
+      font-family: var(--ff-head);
+      font-size: 1.8rem;
+      font-weight: 400;
+      letter-spacing: 0.02em;
+      margin-bottom: .3rem;
+    }
+    .tab-card-variants { font-size: 1.2rem; opacity: .55; margin-bottom: .6rem; }
+    .tab-card-price { display: flex; align-items: center; gap: .8rem; flex-wrap: wrap; }
+    .price-original { font-size: 1.2rem; opacity: .45; text-decoration: line-through; }
+    .price-sale { font-size: 1.35rem; color: var(--rose); font-weight: 500; }
+    .price-regular { font-size: 1.35rem; color: var(--dark); font-weight: 500; }
+    .sale-pill {
+      background: var(--rose-lt);
+      color: var(--white);
+      font-size: .95rem;
+      letter-spacing: .07em;
+      padding: .25rem .75rem;
+      border-radius: 40px;
+      font-weight: 500;
+    }
+    .tab-quick-add {
+      position: absolute;
+      bottom: 1rem;
+      right: 1rem;
+      width: 3rem;
+      height: 3rem;
+      border-radius: 50%;
+      background: var(--white);
+      border: 1px solid var(--border);
+      font-size: 1.8rem;
+      line-height: 1;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity .2s;
+      color: var(--dark);
+    }
+    .tab-card:hover .tab-quick-add { opacity: 1; }
+    .tab-quick-add:hover { background: var(--rose); color: var(--white); border-color: var(--rose); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .products-grid { grid-template-columns: repeat(2,1fr); }
+      .values-grid { grid-template-columns: 1fr; }
+      .image-text-inner { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      header { padding: 1.8rem 2rem; }
+      .header-icons { right: 2rem; }
+    }
+    @media (max-width: 600px) {
+      .products-grid { grid-template-columns: repeat(2,1fr); gap: 1.2rem; }
+      footer { padding: 3rem 2rem 2rem; }
+      .footer-grid { grid-template-columns: 1fr; }
+      section { padding: 4rem 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Announcement -->
+  <div class="announcement">
+    🌸 Envío gratis en pedidos mayores a $500 · Flores frescas todos los días
+  </div>
+
+  <!-- Header -->
+  <header>
+    <a href="#" class="logo">Moviditas</a>
+    <nav>
+      <a href="#">Bouquets</a>
+      <a href="#">Arreglos</a>
+      <a href="#">Plantas</a>
+      <a href="#">Bodas</a>
+      <a href="#">Nosotros</a>
+    </nav>
+    <div class="header-icons">
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M20 7H4a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2z"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+      <svg viewBox="0 0 24 24" stroke-width="1.5"><path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-flowers">🌸🌺🌷</div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <h1>Flores que expresan lo que las palabras no pueden</h1>
+      <p>Arreglos florales artesanales, bouquets y plantas para cada ocasión especial.</p>
+      <div class="hero-buttons">
+        <a href="#productos" class="btn btn-primary">Ver colección</a>
+        <a href="#historia" class="btn btn-outline">Nuestra historia</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Brand Story -->
+  <section id="historia">
+    <div class="brand-story">
+      <div class="section-label">Bienvenidos</div>
+      <h2>Cada flor cuenta una historia</h2>
+      <p>Creamos arreglos florales únicos con las flores más frescas, cuidadosamente seleccionadas para celebrar tus momentos más especiales. Desde bouquets románticos hasta centros de mesa para eventos.</p>
+      <a href="#" class="btn btn-outline" style="border-color:var(--rose); color:var(--rose);">Conoce nuestra historia</a>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="products-section" id="productos">
+    <div class="section-label text-center">Colección</div>
+    <h2>Nuestros Arreglos</h2>
+    <br>
+    <div class="products-grid">
+      <div class="product-card">
+        <div class="card-img">
+          <div class="card-img-inner card-img-bg-1">🌹</div>
+          <span class="badge">Nuevo</span>
+        </div>
+        <div class="card-info">
+          <h3>Bouquet Romántico</h3>
+          <div class="card-price">S/ 120.00</div>
+          <button class="quick-add">Agregar al carrito</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="card-img">
+          <div class="card-img-inner card-img-bg-2">🌷</div>
+        </div>
+        <div class="card-info">
+          <h3>Tulipanes Pastel</h3>
+          <div class="card-price">S/ 95.00</div>
+          <button class="quick-add">Agregar al carrito</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="card-img">
+          <div class="card-img-inner card-img-bg-3">🌸</div>
+          <span class="badge">Oferta</span>
+        </div>
+        <div class="card-info">
+          <h3>Arreglo Primavera</h3>
+          <div class="card-price">S/ 145.00</div>
+          <button class="quick-add">Agregar al carrito</button>
+        </div>
+      </div>
+      <div class="product-card">
+        <div class="card-img">
+          <div class="card-img-inner card-img-bg-4">💐</div>
+        </div>
+        <div class="card-info">
+          <h3>Centro de Mesa</h3>
+          <div class="card-price">S/ 220.00</div>
+          <button class="quick-add">Agregar al carrito</button>
+        </div>
+      </div>
+    </div>
+    <br><br>
+    <div style="text-align:center">
+      <a href="#" class="btn btn-primary">Ver todos los arreglos</a>
+    </div>
+  </section>
+
+  <!-- Image with Text -->
+  <section class="image-text">
+    <div class="image-text-inner">
+      <div class="image-text-img">🌺</div>
+      <div class="image-text-content">
+        <div class="section-label">Nuestra promesa</div>
+        <h2>Frescura y belleza en cada detalle</h2>
+        <p>Trabajamos directamente con productores locales para garantizar flores de la más alta calidad. Cada arreglo es elaborado a mano por nuestros floristas con pasión y dedicación.</p>
+        <a href="#" class="btn btn-primary">Explorar arreglos</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Best Sellers -->
+  <section class="best-sellers">
+    <div class="bs-header">
+      <h2>Bouquets más vendidos</h2>
+      <a href="#" class="bs-view-all">Ver nuestros más vendidos →</a>
+    </div>
+    <div class="bs-grid">
+      <!-- Featured large -->
+      <a href="#" class="bs-card bs-card--large bs-card--photo">
+        <div class="bs-card-inner">
+          <div class="bs-img bs-img-1"></div>
+          <span class="bs-label">Bridal Ivory</span>
+        </div>
+      </a>
+      <!-- Small grid -->
+      <div class="bs-small-grid">
+        <a href="#" class="bs-card bs-card--photo">
+          <div class="bs-card-inner">
+            <div class="bs-img bs-img-3"></div>
+            <span class="bs-label">Everyday Joy</span>
+          </div>
+        </a>
+        <a href="#" class="bs-card bs-card--illustration">
+          <div class="bs-card-inner">
+            <div class="bs-img bs-img-art-1">
+              <svg viewBox="0 0 120 160" fill="none" stroke="var(--dark)" stroke-width="1.2" opacity=".55">
+                <ellipse cx="60" cy="50" rx="22" ry="28"/>
+                <path d="M60 78 C60 78 50 95 45 120 M60 78 C60 78 70 95 75 120"/>
+                <path d="M38 42 C25 30 20 15 35 12 C45 10 55 25 60 40"/>
+                <path d="M82 42 C95 30 100 15 85 12 C75 10 65 25 60 40"/>
+                <path d="M42 60 C30 55 22 62 28 72 C32 78 45 76 55 70"/>
+                <path d="M78 60 C90 55 98 62 92 72 C88 78 75 76 65 70"/>
+                <ellipse cx="60" cy="45" rx="8" ry="10"/>
+                <path d="M40 130 Q60 145 80 130" stroke-width="1"/>
+              </svg>
+            </div>
+          </div>
+        </a>
+        <a href="#" class="bs-card bs-card--photo bs-card--accent">
+          <div class="bs-card-inner">
+            <div class="bs-img bs-img-4"></div>
+            <span class="bs-label">Blush Alstroemeria</span>
+          </div>
+        </a>
+        <a href="#" class="bs-card bs-card--illustration">
+          <div class="bs-card-inner">
+            <div class="bs-img bs-img-art-2">
+              <svg viewBox="0 0 120 160" fill="none" stroke="var(--dark)" stroke-width="1.1" opacity=".5">
+                <path d="M60 90 L60 150"/>
+                <path d="M60 90 C60 90 40 70 30 45 C25 30 35 20 45 30 C52 37 58 55 60 70"/>
+                <path d="M60 90 C60 90 80 70 90 45 C95 30 85 20 75 30 C68 37 62 55 60 70"/>
+                <path d="M60 75 C60 75 45 58 42 38 C40 25 50 22 56 32"/>
+                <path d="M60 75 C60 75 75 58 78 38 C80 25 70 22 64 32"/>
+                <circle cx="60" cy="28" r="8"/>
+                <circle cx="38" cy="42" r="5"/>
+                <circle cx="82" cy="42" r="5"/>
+                <path d="M50 140 Q55 148 60 140 Q65 132 70 140"/>
+              </svg>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Tabbed Collections -->
+  <section class="tabbed-collections">
+    <div class="tab-sidebar">
+      <button class="tab-btn active" data-tab="bouquets">
+        <span>Bouquets</span>
+      </button>
+      <button class="tab-btn" data-tab="plantas">
+        <span>Plantas</span>
+      </button>
+      <button class="tab-btn" data-tab="bodas">
+        <span>Bodas</span>
+      </button>
+    </div>
+
+    <div class="tab-content">
+      <!-- Bouquets -->
+      <div class="tab-panel active" id="tab-bouquets">
+        <div class="tab-panel-header">
+          <div>
+            <h3>Bouquets de Florista</h3>
+            <p>Nuestros floristas crean bouquets únicos — siempre frescos, siempre especiales.</p>
+          </div>
+          <a href="#" class="tab-view-all">Ver todos los Bouquets →</a>
+        </div>
+        <div class="tab-products">
+          <div class="tab-card">
+            <div class="tab-card-img" style="background:linear-gradient(135deg,#f0d6cc,#e8bdb0)">🌹</div>
+            <div class="tab-card-info">
+              <h4>Everyday Joy</h4>
+              <p class="tab-card-variants">Individual, Doble</p>
+              <div class="tab-card-price">
+                <span class="price-original">S/ 68.00</span>
+                <span class="price-sale">Desde S/ 45.00</span>
+                <span class="sale-pill">OFERTA</span>
+              </div>
+            </div>
+            <button class="tab-quick-add">+</button>
+          </div>
+          <div class="tab-card">
+            <div class="tab-card-img" style="background:linear-gradient(135deg,#e8e8f0,#d0d0e8)">🌸</div>
+            <div class="tab-card-info">
+              <h4>Comfort Whites</h4>
+              <p class="tab-card-variants">Individual, Doble</p>
+              <div class="tab-card-price">
+                <span class="price-original">S/ 90.00</span>
+                <span class="price-sale">Desde S/ 65.00</span>
+                <span class="sale-pill">OFERTA</span>
+              </div>
+            </div>
+            <button class="tab-quick-add">+</button>
+          </div>
+          <div class="tab-card">
+            <div class="tab-card-img" style="background:linear-gradient(135deg,#d6d0e8,#c4b8e0)">💜</div>
+            <div class="tab-card-info">
+              <h4>Distant Embrace</h4>
+              <p class="tab-card-variants">Individual, Doble</p>
+              <div class="tab-card-price">
+                <span class="price-original">S/ 80.00</span>
+                <span class="price-sale">Desde S/ 58.00</span>
+                <span class="sale-pill">OFERTA</span>
+              </div>
+            </div>
+            <button class="tab-quick-add">+</button>
+          </div>
+          <div class="tab-card">
+            <div class="tab-card-img" style="background:linear-gradient(135deg,#f0e0d0,#e4c8b8)">🌷</div>
+            <div class="tab-card-info">
+              <h4>Comfort &amp; Care</h4>
+              <p class="tab-card-variants">Individual, Doble</p>
+              <div class="tab-card-price">
+                <span class="price-original">S/ 95.00</span>
+                <span class="price-sale">Desde S/ 69.00</span>
+                <span class="sale-pill">OFERTA</span>
+              </div>
+            </div>
+            <button class="tab-quick-add">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Plantas -->
+      <div class="tab-panel" id="tab-plantas">
+        <div class="tab-panel-header">
+          <div>
+            <h3>Plantas de Interior</h3>
+            <p>Plantas de bajo mantenimiento con alto impacto — perfectas para regalar o decorar.</p>
+          </div>
+          <a href="#" class="tab-view-all">Ver todas las Plantas →</a>
+        </div>
+        <div class="tab-products">
+          <div class="tab-card">
+            <div class="tab-card-img" style="background:linear-gradient(135deg,#e0ece0,#c8e0c8)">🌿</div>
+            <div class="tab-card-info">
+              <h4>Peace Lily</h4>
+              <p class="tab-card-variants">Tamaño único</p>
+              <div class="tab-card-price"><span class="price-regular">S/ 55.00</span></div>
+            </div>
+            <button class="tab-quick-add">+</button>
+          </div>
+          <div class="tab-card">
+            <div class="tab-card-img" style="background:linear-gradient(135deg,#dce8dc,#c4d8c4)">🪴</div>
+            <div class="tab-card-info">
+              <h4>Rubber Plant</h4>
+              <p class="tab-card-variants">Tamaño único</p>
+              <div class="tab-card-price"><span class="price-regular">S/ 62.00</span></div>
+            </div>
+            <button class="tab-quick-add">+</button>
+          </div>
+          <div class="tab-card">
+            <div class="tab-card-img" style="background:linear-gradient(135deg,#d8e8d8,#bcd8bc)">🌱</div>
+            <div class="tab-card-info">
+              <h4>Pothos Mármol</h4>
+              <p class="tab-card-variants">Tamaño único</p>
+              <div class="tab-card-price"><span class="price-regular">S/ 48.00</span></div>
+            </div>
+            <button class="tab-quick-add">+</button>
+          </div>
+          <div class="tab-card">
+            <div class="tab-card-img" style="background:linear-gradient(135deg,#d4e4d4,#b8d4b8)">🌾</div>
+            <div class="tab-card-info">
+              <h4>ZZ Plant</h4>
+              <p class="tab-card-variants">Tamaño único</p>
+              <div class="tab-card-price"><span class="price-regular">S/ 78.00</span></div>
+            </div>
+            <button class="tab-quick-add">+</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Bodas -->
+      <div class="tab-panel" id="tab-bodas">
+        <div class="tab-panel-header">
+          <div>
+            <h3>Arreglos de Boda</h3>
+            <p>Flores para el día más especial — diseños exclusivos para tu ceremonia y recepción.</p>
+          </div>
+          <a href="#" class="tab-view-all">Ver todos los arreglos de Boda →</a>
+        </div>
+        <div class="tab-products">
+          <div class="tab-card">
+            <div class="tab-card-img" style="background:linear-gradient(135deg,#f8e8e8,#f0d0d0)">👰</div>
+            <div class="tab-card-info">
+              <h4>Bouquet Nupcial</h4>
+              <p class="tab-card-variants">Clásico, Premium</p>
+              <div class="tab-card-price"><span class="price-regular">Desde S/ 280.00</span></div>
+            </div>
+            <button class="tab-quick-add">+</button>
+          </div>
+          <div class="tab-card">
+            <div class="tab-card-img" style="background:linear-gradient(135deg,#f0e8f0,#e0d0e8)">💐</div>
+            <div class="tab-card-info">
+              <h4>Centro de Mesa</h4>
+              <p class="tab-card-variants">Pequeño, Grande</p>
+              <div class="tab-card-price"><span class="price-regular">Desde S/ 180.00</span></div>
+            </div>
+            <button class="tab-quick-add">+</button>
+          </div>
+          <div class="tab-card">
+            <div class="tab-card-img" style="background:linear-gradient(135deg,#fce8e0,#f8d8cc)">🎀</div>
+            <div class="tab-card-info">
+              <h4>Arco Floral</h4>
+              <p class="tab-card-variants">Estándar, Deluxe</p>
+              <div class="tab-card-price"><span class="price-regular">Desde S/ 650.00</span></div>
+            </div>
+            <button class="tab-quick-add">+</button>
+          </div>
+          <div class="tab-card">
+            <div class="tab-card-img" style="background:linear-gradient(135deg,#f4e4e8,#ecd0d8)">🌺</div>
+            <div class="tab-card-info">
+              <h4>Petal Confetti</h4>
+              <p class="tab-card-variants">Por kilo</p>
+              <div class="tab-card-price"><span class="price-regular">S/ 45.00</span></div>
+            </div>
+            <button class="tab-quick-add">+</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Values -->
+  <section class="values">
+    <div class="values-inner">
+      <h2>¿Por qué elegirnos?</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">🌱</div>
+          <h3>Flores Frescas</h3>
+          <p>Recibimos nuevas flores cada mañana directamente de los mejores cultivos para garantizar la máxima frescura.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">✂️</div>
+          <h3>Diseño Artesanal</h3>
+          <p>Cada arreglo es creado a mano por nuestros floristas expertos, con atención personalizada a cada detalle.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">🚚</div>
+          <h3>Entrega a Domicilio</h3>
+          <p>Llevamos tu pedido directo a la puerta. Entrega el mismo día disponible en pedidos antes del mediodía.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter -->
+  <section class="newsletter">
+    <h2>Únete a nuestra comunidad floral</h2>
+    <p>Recibe inspiración floral, ofertas exclusivas y novedades directamente en tu bandeja de entrada.</p>
+    <div class="newsletter-form">
+      <input type="email" placeholder="tu@correo.com">
+      <button>Suscribirse</button>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="#" class="logo">Moviditas</a>
+        <p>Creamos arreglos florales únicos con amor y dedicación para cada ocasión especial en tu vida.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Comprar</h4>
+        <ul>
+          <li><a href="#">Bouquets</a></li>
+          <li><a href="#">Arreglos</a></li>
+          <li><a href="#">Plantas</a></li>
+          <li><a href="#">Bodas y eventos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Información</h4>
+        <ul>
+          <li><a href="#">Sobre nosotros</a></li>
+          <li><a href="#">Envíos</a></li>
+          <li><a href="#">Devoluciones</a></li>
+          <li><a href="#">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Moviditas · Todos los derechos reservados</span>
+      <span>🌸 Hecho con amor en Perú</span>
+    </div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.tab;
+        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+        document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+        btn.classList.add('active');
+        document.getElementById('tab-' + tab).classList.add('active');
+      });
+    });
+  </script>
+</body>
+</html>
