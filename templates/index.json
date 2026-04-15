@@ -1,24 +1,5 @@
 {
   "sections": {
-    "announcement_bar": {
-      "type": "announcement-bar",
-      "blocks": {
-        "announcement": {
-          "type": "announcement",
-          "settings": {
-            "text": "Envío gratis en pedidos mayores a $500 · Flores frescas todos los días",
-            "text_alignment": "center",
-            "link": ""
-          }
-        }
-      },
-      "block_order": ["announcement"],
-      "settings": {
-        "color_scheme": "scheme-4",
-        "auto_rotate": false,
-        "change_slides_speed": 5
-      }
-    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -283,7 +264,6 @@
     }
   },
   "order": [
-    "announcement_bar",
     "image_banner",
     "rich_text",
     "featured_collection",
